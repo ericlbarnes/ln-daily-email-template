@@ -16,7 +16,6 @@ module.exports = {
     url: 'https://feed.laravel-news.com'
   },
   build: {
-    fail: 'verbose',
     templates: {
       source: 'src/templates',
       destination: {
