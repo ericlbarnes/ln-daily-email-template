@@ -11,6 +11,7 @@
 
 module.exports = {
   build: {
+    fail: 'verbose',
     templates: {
       source: 'src/templates',
       destination: {
@@ -22,6 +23,4 @@ module.exports = {
       },
     },
   },
-  inlineCSS: true,
-  removeUnusedCSS: true,
 }
