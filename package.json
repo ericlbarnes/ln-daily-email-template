@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@maizzle/framework": "next",
+    "rss-parser": "^3.12.0",
     "tailwindcss-box-shadow": "^1.0.0",
     "tailwindcss-mso": "^1.0.1"
   }

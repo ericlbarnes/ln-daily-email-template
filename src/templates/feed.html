@@ -1,0 +1,175 @@
+---
+title: "Laravel Newsletter"
+preheader: "Your official Laravel news source"
+bodyClass: bg-gray-100
+---
+
+<extends src="src/layouts/main.html">
+  <block name="template">
+    <table class="w-full font-sans">
+      <tr>
+        <td align="center" class="bg-gray-100">
+          <table class="w-150 sm:w-full">
+            <tr>
+              <td class="p-12 sm:py-8 sm:px-6 text-center">
+                <a href="{{ page.feed.feedUrl }}">
+                  <img src="{{ page.feed.image.url }}" width="75" alt="{{ page.feed.title }}">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" class="sm:px-6">
+                <each loop="post in page.feed.posts">
+                  <table class="w-full shadow-xl rounded">
+                    <tr>
+                      <td>
+                        <a href="{{ post.link }}">
+                          <img
+                            class="rounded-tl rounded-tr"
+                            width="600"
+                            src="{{ page.getFirstImageURL(post.content) || 'https://laravelnews.imgix.net/images/laravel-route-type-hints-featured.png?resize=600%2C312' }}"
+                          >
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="bg-white p-5 rounded-br rounded-bl">
+                        <h2 class="mt-2 mb-3 text-2xl leading-full font-extrabold text-black">
+                          <a href="{{ post.link }}" class="text-black hover:text-slate-700 no-underline">
+                            {{{ post.title }}}
+                          </a>
+                        </h2>
+                        <p class="m-0 mb-4 text-base text-slate-500">
+                          {{{ post.contentSnippet }}}
+                        </p>
+                        <a href="{{ post.link }}" class="text-red-600 no-underline hover:underline">
+                          Read this article →
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="leading-16" role="separator">&zwnj;</div>
+                </each>
+
+                <table class="w-full mb-4 shadow-xl rounded">
+                  <tr>
+                    <td class="bg-white p-5 rounded-br rounded-bl">
+                      <table class="w-full">
+                        <tr>
+                          <td class="w-6/12 border-b border-gray-500">
+                            <h2 class="text-2xl font-extrabold text-black mt-0 mb-1">Community Links</h2>
+                          </td>
+                          <td class="w-6/12 text-right">
+                            <a
+                              href="https://laravel-news.com"
+                              class="inline-block py-1.25 px-3.5 text-sm leading-none no-underline text-black font-semibold"
+                            >
+                              Add Your Link
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      <div>
+                        <h3 class="text-lg mb-1">
+                          <a
+                            href="https://github.com/michael-rubel/laravel-model-mapper"
+                            class="font-semibold leading-full text-red-600 no-underline hover:underline"
+                          >
+                            Map your model attributes to local properties
+                          </a>
+                        </h3>
+                        <p class="text-gray-700 text-base leading-normal mt-1">
+                          Basics on performance testing web applications with web ui or headless integrated in CI/CD
+                        </p>
+                      </div>
+                      <div>
+                        <h3 class="text-lg mb-1">
+                          <a
+                            href="https://github.com/michael-rubel/laravel-model-mapper"
+                            class="font-semibold leading-full text-red-600 no-underline hover:underline"
+                          >
+                            How to load test your application
+                          </a>
+                        </h3>
+                        <p class="text-gray-700 text-base leading-normal mt-1">
+                          Basics on performance testing web applications with web ui or headless integrated in CI/CD
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="leading-16" role="separator">&zwnj;</div>
+
+                <table class="w-full shadow-xl rounded mb-4">
+                  <tr>
+                    <td class="bg-white p-5 rounded-br rounded-bl">
+                      <table class="w-full">
+                        <tr>
+                          <td class="w-6/12 border-b border-gray-500">
+                            <h2 class="text-2xl font-extrabold text-black mt-0 mb-1">New Laravel Jobs</h2>
+                          </td>
+                          <td class="w-6/12 text-right">
+                            <a
+                              href="https://laravel-news.com"
+                              class="inline-block py-1.25 px-3.5 text-sm leading-none no-underline text-black font-semibold"
+                            >
+                              Add Your Job
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      <div>
+                        <h3 class="text-lg text-black font-bold underline hover:no-underline mb-1">
+                          <a
+                            href="https://github.com/michael-rubel/laravel-model-mapper"
+                            class="font-semibold leading-full text-black underline hover:no-underline"
+                          >
+                            Otherboard
+                          </a>
+                        </h3>
+                        <p class="text-gray-700 text-base leading-normal mt-1">Senior Fullstack Laravel Developer in Remote</p>
+                      </div>
+                      <div>
+                        <h3 class="text-lg text-black font-bold underline hover:no-underline mb-1">
+                          <a
+                            href="https://github.com/michael-rubel/laravel-model-mapper"
+                            class="font-semibold leading-full text-black underline hover:no-underline"
+                          >
+                            Otherboard
+                          </a>
+                        </h3>
+                        <p class="text-gray-700 text-base leading-normal mt-1">Senior Fullstack Laravel Developer in Remote</p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="leading-16" role="separator">&zwnj;</div>
+
+                <table class="w-full mb-2" role="separator">
+                  <tr>
+                    <td>
+                      <div class="bg-gray-300 h-px leading-px">&zwnj;</div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="w-full mb-7">
+                  <tr>
+                    <td class="text-center text-gray-600 text-xs px-6">
+                      <p class="m-0 mb-1">
+                        <unsubscribe>Unsubscribe</unsubscribe> | <preferences>Update your email/preferences</preferences> | dotdev inc. PO Box 196, Cramerton NC, 28032
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </block>
+</extends>
