@@ -9,7 +9,7 @@
 */
 
 @layer utilities {
-  .mso-leading-exactly {
-    mso-line-height-rule: exactly;
+  .mso-special-format-bullet {
+    mso-special-format: bullet;
   }
 }

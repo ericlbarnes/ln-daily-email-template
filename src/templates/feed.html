@@ -1,6 +1,6 @@
 ---
 title: "Laravel Newsletter"
-preheader: "Your Laravel week in review"
+preheader: "Your official Laravel news source"
 bodyClass: bg-gray-100
 ---
 
@@ -12,36 +12,45 @@ bodyClass: bg-gray-100
           <table class="w-150 sm:w-full">
             <tr>
               <td class="p-12 sm:py-8 sm:px-6 text-center">
-                <a href="https://laravel-news.com">
-                  <img src="https://laravelnews.imgix.net/laravel-news__logo.png" width="75" alt="Laravel News">
+                <a href="{{ page.feed.feedUrl }}">
+                  <img src="{{ page.feed.image.url }}" width="75" alt="{{ page.feed.title }}">
                 </a>
               </td>
             </tr>
             <tr>
               <td align="center" class="sm:px-6">
-                <table class="w-full shadow-xl rounded">
-                  <tr>
-                    <td>
-                      <a href="https://laravel-news.com">
-                        <img
-                          class="rounded-tl rounded-tr"
-                          src="https://laravelnews.imgix.net/images/laravel-route-type-hints-featured.png?resize=600%2C312"
-                        >
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="bg-white p-5 rounded-br rounded-bl">
-                      <h2 class="mt-2 mb-3 text-2xl leading-full font-extrabold text-black">
-                        <a href="https://example.com" class="text-black hover:text-slate-700 no-underline">Lorem ipsum dolor sit amet, consectetur</a>
-                      </h2>
-                      <p class="m-0 mb-4 text-base text-slate-500">Anim ullamco anim ipsum Lorem id voluptate consequat excepteur proident cillum mollit. Tempor eiusmod fugiat minim Lorem.</p>
-                      <a href="https://example.com" class="text-red-600 no-underline hover:underline">Read this article →</a>
-                    </td>
-                  </tr>
-                </table>
+                <each loop="post in page.feed.posts">
+                  <table class="w-full shadow-xl rounded">
+                    <tr>
+                      <td>
+                        <a href="{{ post.link }}">
+                          <img
+                            class="rounded-tl rounded-tr"
+                            width="600"
+                            src="{{ page.getFirstImageURL(post.content) || 'https://laravelnews.imgix.net/images/laravel-route-type-hints-featured.png?resize=600%2C312' }}"
+                          >
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="bg-white p-5 rounded-br rounded-bl">
+                        <h2 class="mt-2 mb-3 text-2xl leading-full font-extrabold text-black">
+                          <a href="{{ post.link }}" class="text-black hover:text-slate-700 no-underline">
+                            {{{ post.title }}}
+                          </a>
+                        </h2>
+                        <p class="m-0 mb-4 text-base text-slate-500">
+                          {{{ post.contentSnippet }}}
+                        </p>
+                        <a href="{{ post.link }}" class="text-red-600 no-underline hover:underline">
+                          Read this article →
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
 
-                <div class="leading-16" role="separator">&zwnj;</div>
+                  <div class="leading-16" role="separator">&zwnj;</div>
+                </each>
 
                 <table class="w-full mb-4 shadow-xl rounded">
                   <tr>
